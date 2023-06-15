@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Layout, Space, Input, Divider, List } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -11,9 +11,7 @@ const data = [
     'Man charged over missing wedding girl.',
     'Los Angeles battles huge wildfires.',
 ];
-export default function ChatArea() {
-
-    const [userInput, setUserInput ] = useState('')
+export default function ViewChat() {
     return (
         <div>
             <List
@@ -24,14 +22,6 @@ export default function ChatArea() {
                         <p>item 1</p>
                     </List.Item>
                 )}
-            />
-            <Divider />
-            <Search
-                placeholder="input search text"
-                allowClear
-                enterButton="Search"
-                size="large"
-                // onSearch={onSearch}
             />
         </div>
     )
