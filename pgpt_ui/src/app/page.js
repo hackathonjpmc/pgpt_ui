@@ -1,10 +1,15 @@
 'use client'
 import Image from 'next/image'
-import React from 'react';
+import React, {useState} from 'react';
 import { Layout, Space, Input,  Anchor, Row, Col } from 'antd';
 import ChatArea from "@/app/Chat/chatComponent";
+import ClientSidebar from "@/app/Clients/ClientSidebar";
+import References from "@/app/References/References";
+import ViewChat from "@/app/Chat/ViewChat";
 
 const { Header, Footer, Sider, Content } = Layout;
+
+const { Search } = Input;
 
 const headerStyle = {
     textAlign: 'center',
@@ -38,16 +43,20 @@ const footerStyle = {
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
+        <Space direction="vertical" style={{ width: '100%', height: '90%' }} >
             <Layout>
-                <Header style={headerStyle}>PGPT</Header>
+                <Header style={headerStyle}>PaymentsGPT</Header>
                 <Layout hasSider>
-                    <Sider style={siderStyle}>Sider</Sider>
+                    <Sider style={siderStyle}>
+                        <ClientSidebar/>
+                    </Sider>
                     <Content style={contentStyle}>
                         <ChatArea/>
                     </Content>
+                    <Sider style={siderStyle}>
+                        <References/>
+                    </Sider>
                 </Layout>
-                <Footer style={footerStyle}>Footer</Footer>
             </Layout>
 
         </Space>
