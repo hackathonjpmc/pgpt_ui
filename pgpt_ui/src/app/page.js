@@ -26,6 +26,7 @@ const chatPanelStyle = {
 	lineHeight: '70px',
 	color: '#fff',
 	backgroundColor: '#108ee9',
+	flex: 1,
 };
 
 const siderStyle = {
@@ -33,6 +34,7 @@ const siderStyle = {
 	lineHeight: '120px',
 	color: '#fff',
 	backgroundColor: '#3ba0e9',
+	width: '33%',
 };
 
 const spaceStyle = {
@@ -114,7 +116,7 @@ export default function Home() {
 						<Content style={chatPanelStyle}>
 							<ChatPanel currentService={currentService} />
 						</Content>
-						<Sider style={siderStyle}>
+						<Sider style={siderStyle} width='25%'>
 							<References />
 						</Sider>
 					</Layout>
@@ -122,4 +124,21 @@ export default function Home() {
 			</Space>
 		</main>
 	);
+}
+
+{
+	/* <Sider style={siderStyle} width="33%">
+    <ClientSidebar
+        currentService={currentService}
+        services={services}
+        setCurrentService={setCurrentService}
+    />
+</Sider>
+<Content style={{chatPanelStyle, flex: "1" }}>
+    <ChatPanel currentService={currentService} />
+</Content>
+<Sider style={{...siderStyle, width: "33.33%"}}>
+    <References />
+</Sider>
+</Layout> */
 }
