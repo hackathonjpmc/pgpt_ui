@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Space, Input, Divider, List } from 'antd';
+import { Layout, Space, Input, Divider, List, Card, Image } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 
 const { Search } = Input;
@@ -11,18 +11,46 @@ const data = [
     'Man charged over missing wedding girl.',
     'Los Angeles battles huge wildfires.',
 ];
-export default function ViewChat() {
+
+    export default function ViewChat({output}) {
     return (
-        <div>
+        <div style={{ height: '400px', overflowY: 'scroll' }}>
             <List
+                dataSource={output}
                 bordered
-                dataSource={data}
-                renderItem={(item) => (
+                renderItem={item => (
                     <List.Item>
-                        <p>item 1</p>
+                        <Card title={item.text ? item.text : 'Image'}>
+                            {item.text ?
+                                <div>{item.text}</div> :
+                                item.images.map((imgSrc, index) => (
+                                    <Image
+                                        key={index}
+                                        width={200}
+                                        src={imgSrc}
+                                    />
+                                ))
+                            }
+                        </Card>
                     </List.Item>
                 )}
             />
         </div>
-    )
+    );
 }
+
+
+// return (
+//     <div>
+//         <List
+//             bordered
+//             dataSource={data}
+//             renderItem={(item) => (
+//                 <List.Item>
+//                     <p>item 1</p>
+//                 </List.Item>
+//             )}
+//         />
+//     </div>
+// )
+// }
