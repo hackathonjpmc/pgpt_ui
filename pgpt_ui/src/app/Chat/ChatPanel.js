@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Layout, Space, Input, Divider, List, Card, Image } from 'antd';
+import { SendOutlined } from '@ant-design/icons';
 import ViewChat from '@/app/Chat/ViewChat';
 import { textForChat } from '../mockChatText';
 
@@ -51,7 +52,11 @@ export default function ChatPanel({ currentService }) {
 	};
 
 	return (
-		<div>
+		<div
+			style={{
+				margin: '5px',
+			}}
+		>
 			<ViewChat chatHistory={chatHistory} />
 			<Divider style={dividerStyle} />
 			<Search
@@ -61,8 +66,7 @@ export default function ChatPanel({ currentService }) {
 				onChange={(e) => setUserInput(e.target.value)}
 				onSearch={handleSearch}
 				size='large'
-				// enterButton="Search"
-				// onSearch={onSearch}
+				enterButton={<SendOutlined />}
 			/>
 		</div>
 	);
