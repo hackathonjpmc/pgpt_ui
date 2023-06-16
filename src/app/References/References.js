@@ -9,6 +9,8 @@ const headerStyle = {
 	lineHeight: '64px',
 };
 
+const arr = ["data1.csv", "how-to-reduce-payment-card-interchange-fees.pdf", "how-to-optimize-interchange-fees.pdf", "data2.csv", "data3.csv", "data4.csv", "data5.csv"]
+
 export default function References() {
 	const [resources, setResources] = useState([]);
 
@@ -18,7 +20,7 @@ export default function References() {
 				const response = await data;
 				const tabElements = response.res.map((e, i) => {
 					return {
-						label: `Tab ${i + 1}`,
+						label: `${arr[i]}`,
 						children: <div> {e.message.substring(0, i * 50)}</div>,
 						key: i,
 					};
