@@ -3,21 +3,25 @@ const mockChatResponse = [
 		id: 1,
 		message: 'ANSWER 1',
 		user: false,
+		reference: ['resource1'],
 	},
 	{
 		id: 2,
 		message: 'ANSWER 2',
 		user: false,
+		reference: ['resource2.csv', 'resource1.pdf'],
 	},
 	{
 		id: 3,
 		message: 'ANSWER 3',
 		user: false,
+		reference: ['total-fees.pdf', 'data1.csv'],
 	},
 	{
 		id: 4,
 		message: 'ANSWER 4',
 		user: false,
+		reference: ['stats.pdf', 'data1.csv'],
 	},
 	{
 		id: 5,

@@ -9,43 +9,24 @@ const headerStyle = {
 	lineHeight: '64px',
 };
 
-export default function References() {
+export default function References({ currentResponse }) {
 	const [resources, setResources] = useState([]);
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await data;
-				const tabElements = response.res.map((e, i) => {
-					return {
-						label: `Tab ${i + 1}`,
-						children: <div> {e.message.substring(0, i * 50)}</div>,
-						key: i,
-					};
-				});
+		if (currentResponse.reference) {
+			const tabElements = currentResponse.reference.map((e, i) => {
+				return {
+					label: `Resource ${i + 1}`,
+					children: <div> {e}</div>,
+					key: i,
+				};
+			});
 
-				setResources(tabElements, resources);
-			} catch (error) {
-				console.error('Error:', error);
-			}
-		};
-
-		fetchData();
-	}, []);
-
-	const referenceCard = (item) => {
-		// return (
-		// 	<Card>
-		// 		{item.message ? (
-		// 			<div style={{ padding: 0 }}>{item.message}</div>
-		// 		) : item.images ? (
-		// 			item.images.map((imgSrc, index) => (
-		// 				<Image key={index} width={200} src={imgSrc} />
-		// 			))
-		// 		) : null}
-		// 	</Card>
-		// );
-	};
+			setResources(tabElements);
+		}
+		console.log('RESPONSE!!!! \n\n\n\n\n', currentResponse);
+		console.log('STATE?!?!!? \n\n\n\n\n\n', resources);
+	}, [currentResponse]);
 
 	return (
 		<>

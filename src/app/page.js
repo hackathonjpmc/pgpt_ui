@@ -77,6 +77,7 @@ const fakeServices = [
 export default function Home() {
 	const [currentService, setCurrentService] = useState('');
 	const [services, setServices] = useState([]);
+	const [currentResponse, setCurrentResponse] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -114,10 +115,13 @@ export default function Home() {
 							/>
 						</Sider>
 						<Content style={chatPanelStyle}>
-							<ChatPanel currentService={currentService} />
+							<ChatPanel
+								currentService={currentService}
+								setCurrentResponse={setCurrentResponse}
+							/>
 						</Content>
 						<Sider style={siderStyle} width='25%'>
-							<References />
+							<References currentResponse={currentResponse} />
 						</Sider>
 					</Layout>
 				</Layout>

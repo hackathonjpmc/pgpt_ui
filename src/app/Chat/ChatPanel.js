@@ -13,7 +13,7 @@ const dividerStyle = {
 	margin: '5px',
 };
 
-export default function ChatPanel({ currentService }) {
+export default function ChatPanel({ currentService, setCurrentResponse }) {
 	const [userInput, setUserInput] = useState('');
 	const [chatHistory, setChatHistory] = useState([]);
 	const [messageIDs, setMessageIDs] = useState(0);
@@ -51,9 +51,6 @@ export default function ChatPanel({ currentService }) {
 		};
 
 		return newItem;
-		// setChatHistory((prevData) => [...prevData, newItem]);
-		// setUserInput('');
-		// setMessageIDs(messageIDs + 1);
 	};
 
 	const fakeApi = () => {
@@ -71,33 +68,6 @@ export default function ChatPanel({ currentService }) {
 		// setMessageIDs(messageIDs + 1);
 	};
 
-	// const callApi = async (input) => {
-
-	// 	let response
-	// 	try {
-	// 		//  response = await fakeServices;
-	// 		 		// MAKE CALL
-	// 		// const response = await fetch('!someEndpoint!');
-	// 		// const json = await response.json();
-	// 		setServices(response);
-	// 		setCurrentService('0');
-	// 	} catch (error) {
-	// 		console.error('Error:', error);
-	// 	}
-	// };
-
-	// 			// handlePreDeterminedInput(); // HERE
-	// 			const quickRandomIndex = Math.floor(Math.random() * 4);
-
-	// 			const newItem = {
-	// 				id: messageIDs, // using the length of current data as id
-	// 				message: storeMockResponses[quickRandomIndex].message, // using the length of current data as message
-	// 				user: false, // this is coming from the bot
-	// 			};
-	// 			setChatHistory((prevData) => [...prevData, newItem]);
-	// 			setMessageIDs(messageIDs + 1);
-	// }
-
 	const checkPrompt = (input) => {
 		const quickRandomIndex = Math.floor(Math.random() * 4);
 		const keywords = {
@@ -106,6 +76,8 @@ export default function ChatPanel({ currentService }) {
 			show: mockChatResponse[6],
 		};
 
+		let reference = ['how-to-optimize-interchange-fees.pdf', 'data1.csv'];
+
 		let message = storeMockResponses[quickRandomIndex].message;
 
 		// Check if the input string contains each keyword
@@ -113,6 +85,7 @@ export default function ChatPanel({ currentService }) {
 			if (input.includes(keyword)) {
 				// If the keyword is found, return its corresponding response
 				message = keywords[keyword].message;
+				reference = keywords[keyword].reference;
 			}
 		}
 
@@ -120,6 +93,7 @@ export default function ChatPanel({ currentService }) {
 			id: messageIDs, // using the length of current data as id
 			message: message, // using the length of current data as message
 			user: false, // this is coming from the bot
+			reference: reference,
 		};
 
 		return newItem; //
@@ -127,12 +101,6 @@ export default function ChatPanel({ currentService }) {
 
 	const handleSearch = async () => {
 		console.log(userInput);
-
-		// const keywords = {
-		// 	optimize: mockChatResponse[4],
-		// 	opportunities: mockChatResponse[5],
-		// 	show: mockChatResponse[6],
-		// };
 
 		const userSuppliedMessage = addToUserHistory(); //returns formatted usr message
 		setChatHistory((prevData) => [...prevData, userSuppliedMessage]);
@@ -142,12 +110,8 @@ export default function ChatPanel({ currentService }) {
 		let response = checkPrompt(formatted); // returns real response or fake
 		setUserInput(''); // reset user input
 		setChatHistory((prevData) => [...prevData, response]);
+		setCurrentResponse(response);
 		setMessageIDs(messageIDs + 1);
-
-		// const chatResponse = callApi(userInput);
-
-		// setChatHistory((prevData) => [...prevData, newItem]); // add respone
-		// setMessageIDs(messageIDs + 1);
 	};
 
 	return (
