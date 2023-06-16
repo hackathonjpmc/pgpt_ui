@@ -1,6 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styles from './chat.module.css';
-import { Layout, Space, Input, Divider, List, Card, Image, Avatar } from 'antd';
+import {
+	Layout,
+	Space,
+	Input,
+	Divider,
+	List,
+	Card,
+	Image,
+	Avatar,
+	Skeleton,
+} from 'antd';
 import { SmileOutlined, SettingFilled } from '@ant-design/icons';
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -29,7 +39,17 @@ const EmptyChat = () => {
 
 // top right bottom left
 export default function ViewChat({ chatHistory }) {
+	const [loading, setLoading] = useState(true);
 	const endOfMessagesRef = useRef(null);
+
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setLoading(false);
+		}, 2000);
+
+		// Clean up the timeout on component unmount
+		return () => clearTimeout(timer);
+	}, []);
 
 	const scrollToBottom = () => {
 		endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -61,24 +81,28 @@ export default function ViewChat({ chatHistory }) {
 				locale={{ emptyText: <EmptyChat /> }}
 				style={listStyle}
 				renderItem={(item) => (
-					<List.Item style={buildItemStyle(item)}>
-						<Card
-							className={styles.chatText}
-							bodyStyle={{ padding: '5px 24px' }}
-						>
-							{item.message ? (
-								<div style={{ padding: 0 }}>{item.message}</div>
-							) : item.images ? (
-								item.images.map((imgSrc, index) => (
-									<Image
-										key={index}
-										width={200}
-										src={imgSrc}
-									/>
-								))
-							) : null}
-						</Card>
-					</List.Item>
+					<Skeleton active loading={loading}>
+						<List.Item style={buildItemStyle(item)}>
+							<Card
+								className={styles.chatText}
+								bodyStyle={{ padding: '5px 24px' }}
+							>
+								{item.message ? (
+									<div style={{ padding: 0 }}>
+										{item.message}
+									</div>
+								) : item.images ? (
+									item.images.map((imgSrc, index) => (
+										<Image
+											key={index}
+											width={200}
+											src={imgSrc}
+										/>
+									))
+								) : null}
+							</Card>
+						</List.Item>
+					</Skeleton>
 				)}
 			/>
 

@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ffe9d7f4-2a97-4b5a-b4ac-bb59519863cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/jsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/next.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/bigLoremIpsum.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/images/graph1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/images/graph2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/images/graph3.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/images/graph4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/images/graph5.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/images/graph6.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/public/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/Chat/ChatPanel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/Chat/ViewChat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/Chat/chat.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/Clients/ClientSidebar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/References/References.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/layout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/mockChatText.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/page.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/src/app/styles.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pgpt_ui/tailwind.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.js" afterDir="false" />
-    </list>
+    <list default="true" id="ffe9d7f4-2a97-4b5a-b4ac-bb59519863cf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
