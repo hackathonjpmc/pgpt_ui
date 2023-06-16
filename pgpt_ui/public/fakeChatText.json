@@ -1,0 +1,12 @@
+[
+	{
+		"id": 1,
+		"message": "placeholder",
+		"user": false
+	},
+	{
+		"id": 2,
+		"message": "lorem ipsum dolor sit. lorem ipsum dolor. lorem ipsum dolor",
+		"user": false
+	}
+]

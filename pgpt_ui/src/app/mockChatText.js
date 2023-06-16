@@ -1,31 +1,34 @@
- const textForChat = [
-{
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-},
-    {
-        text: 'Ut enim ad minim veniam, Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-        text: 'Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    },
-    {
-        text: 'Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla ',
-    },
-    {
-    images: [
-        'https://example.com/image1.jpg',
-        'https://example.com/image2.jpg',
-    ]
-    },
-    {
-        text: 'Ut enim ad minim veniam, Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    },
-    {
-        text: 'Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    },
-    {
-        text: 'Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla ',
-    },
-]
+const textForChat = [
+	{
+		id: 1,
+		message: 'placeholder',
+		user: false,
+	},
+	{
+		id: 2,
+		message: 'lorem ipsum dolor sit. lorem ipsum dolor. lorem ipsum dolor',
+		user: false,
+	},
+	{
+		id: 3,
+		message: 'placeholder',
+		user: false,
+	},
+	{
+		id: 4,
+		message: 'lorem ipsum dolor sit. lorem ipsum dolor. lorem ipsum dolor',
+		user: false,
+	},
+	{
+		id: 5,
+		message: 'placeholder',
+		user: false,
+	},
+	{
+		id: 6,
+		message: 'lorem ipsum dolor sit. lorem ipsum dolor. lorem ipsum dolor',
+		user: true,
+	},
+];
 
- export default textForChat
+export default textForChat;
