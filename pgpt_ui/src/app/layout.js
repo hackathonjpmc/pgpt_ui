@@ -5,8 +5,6 @@ import { Layout, Space, Input, Anchor, Row, Col } from 'antd';
 
 const inter = Inter({ subsets: ['latin'] });
 
-// classname={styles.main}
-
 export const metadata = {
 	title: 'Payment GPT',
 	description: 'Hackathon',
