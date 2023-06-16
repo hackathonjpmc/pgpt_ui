@@ -1,44 +1,60 @@
-import React from 'react';
-import { Layout, Space, Input, Divider, List, Card, Image } from 'antd';
+import React, { useRef, useEffect } from 'react';
+import styles from './chat.module.css';
+import { Layout, Space, Input, Divider, List, Card, Image, Avatar } from 'antd';
+import { SmileOutlined } from '@ant-design/icons';
 const { Header, Footer, Sider, Content } = Layout;
 
+const { Meta } = Card;
 const { Search } = Input;
 
-const data = [
-    'Racing car sprays burning fuel into crowd.',
-    'Japanese princess to wed commoner.',
-    'Australian walks 100km after outback crash.',
-    'Man charged over missing wedding girl.',
-    'Los Angeles battles huge wildfires.',
-];
+export default function ViewChat({ output }) {
+	const endOfMessagesRef = useRef(null);
 
-    export default function ViewChat({output}) {
-    return (
-        <div style={{ height: '400px', overflowY: 'scroll' }}>
-            <List
-                dataSource={output}
-                bordered
-                renderItem={item => (
-                    <List.Item>
-                        <Card title={item.text ? item.text : 'Image'}>
-                            {item.text ?
-                                <div>{item.text}</div> :
-                                item.images.map((imgSrc, index) => (
-                                    <Image
-                                        key={index}
-                                        width={200}
-                                        src={imgSrc}
-                                    />
-                                ))
-                            }
-                        </Card>
-                    </List.Item>
-                )}
-            />
-        </div>
-    );
+	const scrollToBottom = () => {
+		endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
+	};
+
+	useEffect(scrollToBottom, [output]);
+	return (
+		<div style={{ height: '400px', overflowY: 'scroll' }}>
+			<List
+				dataSource={output}
+				bordered
+				renderItem={(item) => (
+					<List.Item
+						style={{
+							display: 'flex',
+							justifyContent: `flex-${
+								item.user ? 'end' : 'start'
+							}`,
+						}}
+					>
+						{/* <List.Item.Meta
+							avatar={<Avatar icon={<SmileOutlined />} />}
+						/> */}
+						<Card
+							className={styles.chatText}
+							bodyStyle={{ padding: '5px 24px' }}
+						>
+							{item.message ? (
+								<div style={{ padding: 0 }}>{item.message}</div>
+							) : item.images ? (
+								item.images.map((imgSrc, index) => (
+									<Image
+										key={index}
+										width={200}
+										src={imgSrc}
+									/>
+								))
+							) : null}
+						</Card>
+					</List.Item>
+				)}
+			/>
+			<div ref={endOfMessagesRef} />
+		</div>
+	);
 }
-
 
 // return (
 //     <div>
