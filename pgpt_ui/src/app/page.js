@@ -125,20 +125,3 @@ export default function Home() {
 		</main>
 	);
 }
-
-{
-	/* <Sider style={siderStyle} width="33%">
-    <ClientSidebar
-        currentService={currentService}
-        services={services}
-        setCurrentService={setCurrentService}
-    />
-</Sider>
-<Content style={{chatPanelStyle, flex: "1" }}>
-    <ChatPanel currentService={currentService} />
-</Content>
-<Sider style={{...siderStyle, width: "33.33%"}}>
-    <References />
-</Sider>
-</Layout> */
-}
