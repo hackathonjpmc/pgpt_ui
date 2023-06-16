@@ -7,6 +7,10 @@ const { Header, Footer, Sider, Content } = Layout;
 const { Meta } = Card;
 const { Search } = Input;
 
+const listStyle = {
+	padding: '15px',
+};
+
 export default function ViewChat({ output }) {
 	const endOfMessagesRef = useRef(null);
 
@@ -16,10 +20,18 @@ export default function ViewChat({ output }) {
 
 	useEffect(scrollToBottom, [output]);
 	return (
-		<div style={{ height: '400px', overflowY: 'scroll' }}>
+		<div
+			style={{
+				height: '600px',
+				overflowY: 'scroll',
+				border: '1px solid #455680',
+				borderRadius: '5px',
+			}}
+		>
 			<List
 				dataSource={output}
-				bordered
+				// bordered
+				style={listStyle}
 				renderItem={(item) => (
 					<List.Item
 						style={{
@@ -29,9 +41,6 @@ export default function ViewChat({ output }) {
 							}`,
 						}}
 					>
-						{/* <List.Item.Meta
-							avatar={<Avatar icon={<SmileOutlined />} />}
-						/> */}
 						<Card
 							className={styles.chatText}
 							bodyStyle={{ padding: '5px 24px' }}

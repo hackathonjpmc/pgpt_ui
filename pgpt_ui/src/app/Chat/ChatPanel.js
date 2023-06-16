@@ -7,27 +7,6 @@ const { Header, Footer, Sider, Content } = Layout;
 
 const { Search } = Input;
 
-// appendMsg({
-//     type: "text",
-//     content: { text: val },
-//     position: "right",
-// user: true,
-
-//   });
-
-// const steps = [
-//     {
-//       id: '0',
-//       message: 'Welcome to react chatbot!',
-//       trigger: '1',
-//     },
-//     {
-//       id: '1',
-//       message: 'Bye!',
-//       end: true,
-//     },
-//   ];
-
 const steps = [
 	{
 		id: '0',
@@ -41,19 +20,12 @@ const steps = [
 	},
 ];
 
-const theme = {
-	background: '#f5f8fb',
-	fontFamily: 'Helvetica Neue',
-	headerBgColor: '#051D41',
-	headerFontColor: '#fff',
-	headerFontSize: '15px',
-	botBubbleColor: '#051D41',
-	botFontColor: '#fff',
-	userBubbleColor: '#fff',
-	userFontColor: '#4a4a4a',
+const dividerStyle = {
+	margin: '5px',
+	// paddingBottom: '0',
 };
 
-export default function ChatArea() {
+export default function ChatPanel() {
 	const [userInput, setUserInput] = useState('');
 	const [previousMessages, setPreviousMessages] = useState([]);
 	const [messageIDs, setMessageIDs] = useState(0);
@@ -90,7 +62,7 @@ export default function ChatArea() {
 	return (
 		<div>
 			<ViewChat output={previousMessages} />
-			<Divider />
+			<Divider style={dividerStyle} />
 			<Search
 				placeholder='ask Payment GPT'
 				allowClear
