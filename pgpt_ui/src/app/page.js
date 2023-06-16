@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Layout, Space, Input, Anchor, Row, Col } from 'antd';
 import ChatPanel from '@/app/Chat/ChatPanel';
 import ClientSidebar from '@/app/Clients/ClientSidebar';
@@ -48,7 +48,50 @@ const contentStyle = {
 	height: '100%',
 	// height: '1000px', // height can be hardcoded here
 };
+
+const fakeServices = [
+	{
+		id: '0',
+		name: 'Portfolio Benchmark',
+	},
+	{
+		id: '1',
+		name: 'Portfolio Summary',
+	},
+	{
+		id: '2',
+		name: 'Optimality',
+	},
+	{
+		id: '3',
+		name: 'Key Insights',
+	},
+	{
+		id: '4',
+		name: 'Internal Profitability',
+	},
+];
+
 export default function Home() {
+	const [currentService, setCurrentService] = useState('');
+	const [services, setServices] = useState([]);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await fakeServices;
+				// const response = await fetch('!someEndpoint!');
+				// const json = await response.json();
+				setServices(response);
+				setCurrentService('0');
+			} catch (error) {
+				console.error('Error:', error);
+			}
+		};
+
+		fetchData();
+	}, []);
+
 	return (
 		<main className='flex min-h-screen flex-col items-center'>
 			<Space direction='vertical' style={spaceStyle}>
@@ -62,10 +105,14 @@ export default function Home() {
 					<Header style={headerStyle}>PaymentsGPT</Header>
 					<Layout hasSider style={contentStyle}>
 						<Sider style={siderStyle}>
-							<ClientSidebar />
+							<ClientSidebar
+								currentService={currentService}
+								services={services}
+								setCurrentService={setCurrentService}
+							/>
 						</Sider>
 						<Content style={chatPanelStyle}>
-							<ChatPanel />
+							<ChatPanel currentService={currentService} />
 						</Content>
 						<Sider style={siderStyle}>
 							<References />

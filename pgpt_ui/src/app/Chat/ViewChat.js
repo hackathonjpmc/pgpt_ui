@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './chat.module.css';
 import { Layout, Space, Input, Divider, List, Card, Image, Avatar } from 'antd';
-import { SmileOutlined } from '@ant-design/icons';
+import { SmileOutlined, SettingFilled } from '@ant-design/icons';
 const { Header, Footer, Sider, Content } = Layout;
 
 const { Meta } = Card;
@@ -11,14 +11,42 @@ const listStyle = {
 	padding: '15px',
 };
 
-export default function ViewChat({ output }) {
+const EmptyChat = () => {
+	return (
+		<>
+			<SettingFilled style={{ fontSize: '300px', color: '#08c' }} />
+			<h3
+				style={{
+					color: '#aab1e6',
+					fontSize: '30px',
+				}}
+			>
+				Empty Chat: Get started by typing a prompt below
+			</h3>
+		</>
+	);
+};
+
+// top right bottom left
+export default function ViewChat({ chatHistory }) {
 	const endOfMessagesRef = useRef(null);
 
 	const scrollToBottom = () => {
 		endOfMessagesRef.current?.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	useEffect(scrollToBottom, [output]);
+	useEffect(scrollToBottom, [chatHistory]);
+
+	const buildItemStyle = (item) => {
+		const styleObject = {
+			display: 'flex',
+			justifyContent: `flex-${item.user ? 'end' : 'start'}`,
+			padding: `12px ${item.user ? '0 12px 40%' : '40% 12px 0'}`,
+		};
+
+		return styleObject;
+	};
+
 	return (
 		<div
 			style={{
@@ -29,18 +57,11 @@ export default function ViewChat({ output }) {
 			}}
 		>
 			<List
-				dataSource={output}
-				// bordered
+				dataSource={chatHistory}
+				locale={{ emptyText: <EmptyChat /> }}
 				style={listStyle}
 				renderItem={(item) => (
-					<List.Item
-						style={{
-							display: 'flex',
-							justifyContent: `flex-${
-								item.user ? 'end' : 'start'
-							}`,
-						}}
-					>
+					<List.Item style={buildItemStyle(item)}>
 						<Card
 							className={styles.chatText}
 							bodyStyle={{ padding: '5px 24px' }}
@@ -60,22 +81,8 @@ export default function ViewChat({ output }) {
 					</List.Item>
 				)}
 			/>
+
 			<div ref={endOfMessagesRef} />
 		</div>
 	);
 }
-
-// return (
-//     <div>
-//         <List
-//             bordered
-//             dataSource={data}
-//             renderItem={(item) => (
-//                 <List.Item>
-//                     <p>item 1</p>
-//                 </List.Item>
-//             )}
-//         />
-//     </div>
-// )
-// }
