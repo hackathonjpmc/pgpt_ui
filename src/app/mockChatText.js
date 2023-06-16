@@ -7,7 +7,7 @@ export const textForChat = [
 	{
 		id: 2,
 		message:
-			'lorem ipsum dolor sit. lorem ipsum dolor. Culpa qui officia deserunt mollit anim id est laborum. lorem ipsum dolor',
+			'Based on your data analysis, look for ways\nto reduce your interchange fees or avoid paying them altogether. For example, you can see if using a\ndifferent card type, card product, or payment method can reduce your interchange fees',
 		user: false,
 	},
 	{

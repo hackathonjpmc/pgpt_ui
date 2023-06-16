@@ -96,7 +96,7 @@ export default function ChatPanel({ currentService, setCurrentResponse }) {
 			reference: reference,
 		};
 
-		return newItem; //
+		return newItem;
 	};
 
 	const handleSearch = async () => {

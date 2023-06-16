@@ -9,6 +9,8 @@ const headerStyle = {
 	lineHeight: '64px',
 };
 
+// const arr = ["data1.csv", "how-to-reduce-payment-card-interchange-fees.pdf", "how-to-optimize-interchange-fees.pdf", "data2.csv", "data3.csv", "data4.csv", "data5.csv"]
+
 export default function References({ currentResponse }) {
 	const [resources, setResources] = useState([]);
 
